@@ -1,4 +1,6 @@
 # Unity UI Framework
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
+
 A flexible UI framework designed specifically for the Unity Engine.
 
 The framework is built around **declarative data binding** using **member expressions**, enabling a clean, refactor-friendly way to connect UI elements to data.
