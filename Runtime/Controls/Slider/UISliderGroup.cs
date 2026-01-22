@@ -20,7 +20,7 @@ namespace Rehawk.UIFramework
 
         public override bool IsVisible
         {
-            get { return isVisible; }
+            get => isVisible;
             set 
             { 
                 isVisible = value;
@@ -35,7 +35,7 @@ namespace Rehawk.UIFramework
 
         public override bool Enabled
         {
-            get { return enabled; }
+            get => isEnabled;
             set 
             { 
                 isEnabled = value;
@@ -50,7 +50,7 @@ namespace Rehawk.UIFramework
         
         public override bool IsInteractable
         {
-            get { return isInteractable; }
+            get => isInteractable;
             set 
             { 
                 isInteractable = value;
@@ -65,7 +65,7 @@ namespace Rehawk.UIFramework
 
         public override object BoxedValue
         {
-            get { return boxedValue; }
+            get => boxedValue;
             set 
             { 
                 boxedValue = value;
@@ -80,7 +80,7 @@ namespace Rehawk.UIFramework
 
         public override ICommand ChangedCommand
         {
-            get { return changedCommand; }
+            get => changedCommand;
             set 
             { 
                 changedCommand = value;
@@ -95,7 +95,7 @@ namespace Rehawk.UIFramework
 
         public override float Value
         {
-            get { return value; }
+            get => value;
             set 
             { 
                 this.value = value;
@@ -110,7 +110,7 @@ namespace Rehawk.UIFramework
 
         public override float NormalizedValue
         {
-            get { return normalizedValue; }
+            get => normalizedValue;
             set 
             { 
                 normalizedValue = value;
@@ -125,7 +125,7 @@ namespace Rehawk.UIFramework
 
         public override float MinValue
         {
-            get { return minValue; }
+            get => minValue;
             set 
             { 
                 minValue = value;
@@ -140,7 +140,7 @@ namespace Rehawk.UIFramework
 
         public override float MaxValue
         {
-            get { return maxValue; }
+            get => maxValue;
             set 
             { 
                 maxValue = value;

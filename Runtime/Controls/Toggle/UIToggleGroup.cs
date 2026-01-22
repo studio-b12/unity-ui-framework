@@ -17,7 +17,7 @@ namespace Rehawk.UIFramework
 
         public override bool IsVisible
         {
-            get { return isVisible; }
+            get => isVisible;
             set 
             { 
                 isVisible = value;
@@ -32,7 +32,7 @@ namespace Rehawk.UIFramework
 
         public override bool Enabled
         {
-            get { return enabled; }
+            get => isEnabled;
             set 
             { 
                 isEnabled = value;
@@ -47,7 +47,7 @@ namespace Rehawk.UIFramework
 
         public override bool IsInteractable
         {
-            get { return isInteractable; }
+            get => isInteractable;
             set 
             { 
                 isInteractable = value;
@@ -62,7 +62,7 @@ namespace Rehawk.UIFramework
 
         public override object BoxedValue
         {
-            get { return boxedValue; }
+            get => boxedValue;
             set 
             { 
                 boxedValue = value;
@@ -77,7 +77,7 @@ namespace Rehawk.UIFramework
 
         public override ICommand ChangedCommand
         {
-            get { return changedCommand; }
+            get => changedCommand;
             set 
             { 
                 changedCommand = value;
@@ -92,7 +92,7 @@ namespace Rehawk.UIFramework
         
         public override bool Value
         {
-            get { return value; }
+            get => value;
             set 
             { 
                 this.value = value;

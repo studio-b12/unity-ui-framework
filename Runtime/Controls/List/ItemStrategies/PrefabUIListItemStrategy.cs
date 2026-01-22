@@ -29,10 +29,7 @@ namespace Rehawk.UIFramework
         
         public PrefabUIListItemStrategy(Dependencies dependencies) : this(dependencies.itemRoot, dependencies.itemPrefab) { }
         
-        public IReadOnlyList<GameObject> ItemObjects
-        {
-            get { return itemObjects; }
-        }
+        public IReadOnlyList<GameObject> ItemObjects => itemObjects;
 
         public GameObject GetItemObject(int index)
         {

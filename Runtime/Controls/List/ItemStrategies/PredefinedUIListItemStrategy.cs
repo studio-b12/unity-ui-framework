@@ -35,14 +35,11 @@ namespace Rehawk.UIFramework
         
         public PredefinedUIListItemStrategy(Dependencies dependencies) : this(dependencies.itemObjects, dependencies.keepEmptyActive) { }
 
-        public IReadOnlyList<GameObject> ItemObjects
-        {
-            get { return activeItemObjects; }
-        }
+        public IReadOnlyList<GameObject> ItemObjects => activeItemObjects;
 
         public bool KeepEmptyActive
         {
-            get { return keepEmptyActive; }
+            get => keepEmptyActive;
             set
             {
                 keepEmptyActive = value;

@@ -24,7 +24,7 @@ namespace Rehawk.UIFramework
 
         public override IEnumerable Items
         {
-            get { return items; }
+            get => items;
             set
             {
                 items = value;
@@ -45,7 +45,7 @@ namespace Rehawk.UIFramework
 
         public override int Count
         {
-            get { return count; }
+            get => count;
             set
             {
                 if (SetField(ref count, value))
@@ -55,10 +55,7 @@ namespace Rehawk.UIFramework
             }
         }
 
-        public override IReadOnlyList<GameObject> ItemObjects
-        {
-            get { return itemStrategy.ItemObjects; }    
-        }
+        public override IReadOnlyList<GameObject> ItemObjects => itemStrategy.ItemObjects;
 
         protected override void OnDestroy()
         {

@@ -11,7 +11,7 @@ namespace Rehawk.UIFramework
 
         public override bool IsVisible
         {
-            get { return gameObject.activeSelf; }
+            get => gameObject.activeSelf;
             set 
             {
                 gameObject.SetActive(value);
@@ -21,7 +21,7 @@ namespace Rehawk.UIFramework
 
         public override bool Enabled
         {
-            get { return target.enabled; }
+            get => target.enabled;
             set 
             {
                 target.enabled = value;
@@ -31,7 +31,7 @@ namespace Rehawk.UIFramework
 
         public override Material Material
         {
-            get { return target.material; }
+            get => target.material;
             set 
             {
                 if (target.material != value)
@@ -44,7 +44,7 @@ namespace Rehawk.UIFramework
 
         public override string Text
         {
-            get { return strategy.GetText(this); }
+            get => strategy.GetText(this);
             set
             {
                 if (strategy.SetText(this, value))
@@ -56,7 +56,7 @@ namespace Rehawk.UIFramework
 
         public override Color Color
         {
-            get { return target.color; }
+            get => target.color;
             set
             {
                 if (target.color != value)
@@ -69,10 +69,10 @@ namespace Rehawk.UIFramework
 
         public override float Alpha
         {
-            get { return target.alpha; }
+            get => target.alpha;
             set
             {
-                if (target.alpha != value)
+                if (!Mathf.Approximately(target.alpha, value))
                 {
                     target.alpha = value;
                     OnPropertyChanged();

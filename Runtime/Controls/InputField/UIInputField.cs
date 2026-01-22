@@ -11,7 +11,7 @@ namespace Rehawk.UIFramework
 
         public override bool IsVisible
         {
-            get { return gameObject.activeSelf; }
+            get => gameObject.activeSelf;
             set 
             {
                 gameObject.SetActive(value);
@@ -21,7 +21,7 @@ namespace Rehawk.UIFramework
 
         public override bool Enabled
         {
-            get { return target.enabled; }
+            get => target.enabled;
             set 
             {
                 target.enabled = value;
@@ -31,7 +31,7 @@ namespace Rehawk.UIFramework
 
         public override bool IsInteractable
         {
-            get { return target.interactable; }
+            get => target.interactable;
             set
             {
                 target.interactable = value;
@@ -41,20 +41,20 @@ namespace Rehawk.UIFramework
 
         public override string Value
         {
-            get { return target.text; }
-            set { target.text = value; }
+            get => target.text;
+            set => target.text = value;
         }
 
         public override object BoxedValue
         {
-            get { return target.text; }
-            set { target.text = value?.ToString(); }
+            get => target.text;
+            set => target.text = value?.ToString();
         }
 
         public override ICommand ChangedCommand
         {
-            get { return changedCommand; }
-            set { SetField(ref changedCommand, value); }
+            get => changedCommand;
+            set => SetField(ref changedCommand, value);
         }
 
         protected override void Awake()

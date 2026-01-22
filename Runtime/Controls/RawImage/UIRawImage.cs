@@ -9,7 +9,7 @@ namespace Rehawk.UIFramework
 
         public override bool IsVisible
         {
-            get { return gameObject.activeSelf; }
+            get => gameObject.activeSelf;
             set 
             {
                 gameObject.SetActive(value);
@@ -19,7 +19,7 @@ namespace Rehawk.UIFramework
 
         public override bool Enabled
         {
-            get { return target.enabled; }
+            get => target.enabled;
             set
             {
                 if (target.enabled != value)
@@ -32,7 +32,7 @@ namespace Rehawk.UIFramework
 
         public override Material Material
         {
-            get { return target.material; }
+            get => target.material;
             set 
             {
                 if (target.material != value)
@@ -45,7 +45,7 @@ namespace Rehawk.UIFramework
 
         public override Texture Texture
         {
-            get { return target.texture; }
+            get => target.texture;
             set
             {
                 if (target.texture != value)
@@ -58,7 +58,7 @@ namespace Rehawk.UIFramework
 
         public override Color Color
         {
-            get { return target.color; }
+            get => target.color;
             set
             {
                 if (target.color != value)
@@ -71,10 +71,10 @@ namespace Rehawk.UIFramework
 
         public override float Alpha
         {
-            get { return Color.a; }
+            get => Color.a;
             set
             {
-                if (Color.a != value)
+                if (!Mathf.Approximately(Color.a, value))
                 {
                     var previousColor = Color;
                     previousColor.a = value;

@@ -17,7 +17,7 @@ namespace Rehawk.UIFramework
 
         public override bool IsVisible
         {
-            get { return isVisible; }
+            get => isVisible;
             set 
             { 
                 isVisible = value;
@@ -30,7 +30,7 @@ namespace Rehawk.UIFramework
 
         public override bool Enabled
         {
-            get { return enabled; }
+            get => isEnabled;
             set 
             { 
                 isEnabled = value;
@@ -43,7 +43,7 @@ namespace Rehawk.UIFramework
 
         public override bool IsInteractable
         {
-            get { return isInteractable; }
+            get => isInteractable;
             set 
             { 
                 isInteractable = value;
@@ -56,7 +56,7 @@ namespace Rehawk.UIFramework
 
         public override ICommand ClickCommand
         {
-            get { return clickCommand; }
+            get => clickCommand;
             set 
             { 
                 clickCommand = value;
@@ -69,7 +69,7 @@ namespace Rehawk.UIFramework
 
         public override ICommand HoverBeginCommand
         {
-            get { return hoverBeginCommand; }
+            get => hoverBeginCommand;
             set 
             { 
                 hoverBeginCommand = value;
@@ -82,7 +82,7 @@ namespace Rehawk.UIFramework
 
         public override ICommand HoverEndCommand
         {
-            get { return hoverEndCommand; }
+            get => hoverEndCommand;
             set 
             { 
                 hoverEndCommand = value;

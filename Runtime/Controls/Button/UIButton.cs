@@ -15,7 +15,7 @@ namespace Rehawk.UIFramework
 
         public override ICommand ClickCommand
         {
-            get { return clickCommand; }
+            get => clickCommand;
             set
             {
                 if (clickCommand != null)
@@ -37,14 +37,14 @@ namespace Rehawk.UIFramework
         
         public override ICommand HoverBeginCommand
         {
-            get { return hoverBeginCommand; }
-            set { SetField(ref hoverBeginCommand, value); }
+            get => hoverBeginCommand;
+            set => SetField(ref hoverBeginCommand, value);
         }
         
         public override ICommand HoverEndCommand
         {
-            get { return hoverEndCommand; }
-            set { SetField(ref hoverEndCommand, value); }
+            get => hoverEndCommand;
+            set => SetField(ref hoverEndCommand, value);
         }
         
         public override bool IsVisible

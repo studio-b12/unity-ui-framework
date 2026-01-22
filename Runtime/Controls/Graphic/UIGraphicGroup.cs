@@ -16,7 +16,7 @@ namespace Rehawk.UIFramework
         
         public override bool IsVisible
         {
-            get { return isVisible; }
+            get => isVisible;
             set 
             { 
                 isVisible = value;
@@ -31,7 +31,7 @@ namespace Rehawk.UIFramework
 
         public override bool Enabled
         {
-            get { return isEnabled; }
+            get => isEnabled;
             set 
             { 
                 isEnabled = value;
@@ -46,7 +46,7 @@ namespace Rehawk.UIFramework
 
         public override Material Material
         {
-            get { return material; }
+            get => material;
             set 
             { 
                 material = value;
@@ -61,7 +61,7 @@ namespace Rehawk.UIFramework
 
         public override Color Color
         {
-            get { return color; }
+            get => color;
             set 
             { 
                 color = value;
@@ -76,7 +76,7 @@ namespace Rehawk.UIFramework
 
         public override float Alpha
         {
-            get { return alpha; }
+            get => alpha;
             set 
             { 
                 alpha = value;

@@ -9,7 +9,7 @@ namespace Rehawk.UIFramework
 
         public override bool IsVisible
         {
-            get { return target.gameObject.activeSelf; }
+            get => target.gameObject.activeSelf;
             set 
             {
                 target.gameObject.SetActive(value);
@@ -19,7 +19,7 @@ namespace Rehawk.UIFramework
 
         public override bool Enabled
         {
-            get { return target.enabled; }
+            get => target.enabled;
             set
             {
                 if (target.enabled != value)
@@ -32,7 +32,7 @@ namespace Rehawk.UIFramework
         
         public override Sprite Sprite
         {
-            get { return target.sprite; }
+            get => target.sprite;
             set
             {
                 if (target.sprite != value)
@@ -45,7 +45,7 @@ namespace Rehawk.UIFramework
 
         public override Sprite OverrideSprite
         {
-            get { return target.overrideSprite; }
+            get => target.overrideSprite;
             set
             {
                 if (target.overrideSprite != value)
@@ -58,7 +58,7 @@ namespace Rehawk.UIFramework
 
         public override Material Material
         {
-            get { return target.material; }
+            get => target.material;
             set
             {
                 if (target.material != value)
@@ -71,7 +71,7 @@ namespace Rehawk.UIFramework
 
         public override Color Color
         {
-            get { return target.color; }
+            get => target.color;
             set
             {
                 if (target.color != value)
@@ -84,10 +84,10 @@ namespace Rehawk.UIFramework
 
         public override float Alpha
         {
-            get { return Color.a; }
+            get => Color.a;
             set
             {
-                if (Color.a != value)
+                if (!Mathf.Approximately(Color.a, value))
                 {
                     var previousColor = Color;
                     previousColor.a = value;
@@ -99,10 +99,10 @@ namespace Rehawk.UIFramework
 
         public override float FillAmount
         {
-            get { return target.fillAmount; }
+            get => target.fillAmount;
             set
             {
-                if (target.fillAmount != value)
+                if (!Mathf.Approximately(target.fillAmount, value))
                 {
                     target.fillAmount = value;
                     OnPropertyChanged();

@@ -50,10 +50,7 @@ namespace Rehawk.UIFramework
             }
         }
 
-        public override UIPanel Parent
-        {
-            get { return parentUIPanel; }
-        }
+        public override UIPanel Parent => parentUIPanel;
 
         protected override void Awake()
         {

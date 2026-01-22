@@ -11,7 +11,7 @@ namespace Rehawk.UIFramework
 
         public override bool IsVisible
         {
-            get { return gameObject.activeSelf; }
+            get => gameObject.activeSelf;
             set 
             {
                 gameObject.SetActive(value);
@@ -21,7 +21,7 @@ namespace Rehawk.UIFramework
 
         public override bool Enabled
         {
-            get { return target.enabled; }
+            get => target.enabled;
             set 
             {
                 target.enabled = value;
@@ -31,7 +31,7 @@ namespace Rehawk.UIFramework
 
         public override bool IsInteractable
         {
-            get { return target.interactable; }
+            get => target.interactable;
             set
             {
                 target.interactable = value;
@@ -41,13 +41,13 @@ namespace Rehawk.UIFramework
 
         public override float Value
         {
-            get { return target.value; }
-            set { target.value = value; }
+            get => target.value;
+            set => target.value = value;
         }
 
         public override object BoxedValue
         {
-            get { return target.value; }
+            get => target.value;
             set
             {
                 if (value != null && float.TryParse(value.ToString(), out float floatValue))
@@ -63,16 +63,16 @@ namespace Rehawk.UIFramework
 
         public override float NormalizedValue
         {
-            get { return target.normalizedValue; }
-            set { target.normalizedValue = value; }
+            get => target.normalizedValue;
+            set => target.normalizedValue = value;
         }
 
         public override float MinValue
         {
-            get { return target.minValue; }
+            get => target.minValue;
             set 
             {
-                if (target.minValue != value)
+                if (!Mathf.Approximately(target.minValue, value))
                 {
                     target.minValue = value;
                     OnPropertyChanged();
@@ -83,10 +83,10 @@ namespace Rehawk.UIFramework
 
         public override float MaxValue
         {
-            get { return target.maxValue; }
+            get => target.maxValue;
             set 
             {
-                if (target.maxValue != value)
+                if (!Mathf.Approximately(target.maxValue, value))
                 {
                     target.maxValue = value;
                     OnPropertyChanged();
@@ -97,8 +97,8 @@ namespace Rehawk.UIFramework
 
         public override ICommand ChangedCommand
         {
-            get { return changedCommand; }
-            set { SetField(ref changedCommand, value); }
+            get => changedCommand;
+            set => SetField(ref changedCommand, value);
         }
 
         protected override void Awake()

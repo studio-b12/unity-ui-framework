@@ -12,7 +12,7 @@ namespace Rehawk.UIFramework
             
         public override bool IsVisible
         {
-            get { return isVisible; }
+            get => isVisible;
             set 
             { 
                 isVisible = value;
