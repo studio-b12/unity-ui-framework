@@ -5,17 +5,26 @@ using UnityEngine;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Extends the functionality provided by UIPanelBase, allowing visibility
+    /// management, parent panel relationships, and hierarchical visibility control by an inspector assignable <see cref="VisibilityStrategyBase"/>.
+    /// </summary>
     public class UIPanel : UIPanelBase
     {
+        [Tooltip("Determines the initial visibility state of the panel. None: Uses current state, Visible: Shows panel on start, Hidden: Hides panel on start")]
         [SerializeField] private InitialVisibility visibility = InitialVisibility.None;
+        [Tooltip("Determines whether the panel should be visible when its parent panel becomes visible. None: Uses current state, HideWith: Hides panel when parent becomes invisible, " +
+                 "ShowWith: Shows panel when parent becomes visible, HideAndShowWith: Hides panel when parent becomes invisible, and shows panel when parent becomes visible again")]
         [SerializeField] private ParentConstraint parentConstraint = ParentConstraint.None;
         
         [Space]
 #if !ODIN_INSPECTOR   
         [SubclassSelector]
 #endif
+        [Tooltip("Defines the strategy used to control how the panel's visibility changes are handled and animated. If not set, the panel will use default GameObject activation")]
         [SerializeReference] private VisibilityStrategyBase visibilityStrategy;
         
+        private bool isEnabled;
         private bool wasPreviousVisible;
         
         private UIPanel parentUIPanel;
@@ -23,6 +32,12 @@ namespace Rehawk.UIFramework
         public override event Action<UIPanel> BecameVisible;
         public override event Action<UIPanel> BecameInvisible;
         
+        public override bool Enabled
+        {
+            get => isEnabled;
+            set => SetField(ref isEnabled, value);
+        }
+
         public override bool IsVisible
         {
             get

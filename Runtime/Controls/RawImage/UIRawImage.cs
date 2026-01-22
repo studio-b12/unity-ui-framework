@@ -22,24 +22,24 @@ namespace Rehawk.UIFramework
             get => target.enabled;
             set
             {
-                if (target.enabled != value)
-                {
-                    target.enabled = value;
-                    OnPropertyChanged();
-                }
+                if (target.enabled == value)
+                    return;
+                
+                target.enabled = value;
+                OnPropertyChanged();
             }
         }
 
         public override Material Material
         {
             get => target.material;
-            set 
+            set
             {
-                if (target.material != value)
-                {
-                    target.material = value;
-                    OnPropertyChanged();
-                }
+                if (target.material == value)
+                    return;
+                
+                target.material = value;
+                OnPropertyChanged();
             }
         }
 
@@ -48,11 +48,11 @@ namespace Rehawk.UIFramework
             get => target.texture;
             set
             {
-                if (target.texture != value)
-                {
-                    target.texture = value;
-                    OnPropertyChanged();
-                }
+                if (target.texture == value) 
+                    return;
+                
+                target.texture = value;
+                OnPropertyChanged();
             }
         }
 
@@ -61,11 +61,11 @@ namespace Rehawk.UIFramework
             get => target.color;
             set
             {
-                if (target.color != value)
-                {
-                    target.color = value;
-                    OnPropertyChanged();
-                }
+                if (target.color == value) 
+                    return;
+                
+                target.color = value;
+                OnPropertyChanged();
             }
         }
 
@@ -74,13 +74,13 @@ namespace Rehawk.UIFramework
             get => Color.a;
             set
             {
-                if (!Mathf.Approximately(Color.a, value))
-                {
-                    var previousColor = Color;
-                    previousColor.a = value;
-                    Color = previousColor;
-                    OnPropertyChanged();
-                }
+                if (Mathf.Approximately(Color.a, value)) 
+                    return;
+                
+                var previousColor = Color;
+                previousColor.a = value;
+                Color = previousColor;
+                OnPropertyChanged();
             }
         }
 

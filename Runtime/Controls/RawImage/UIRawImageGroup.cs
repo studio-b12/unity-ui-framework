@@ -2,6 +2,11 @@
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a UI element that manages a group of raw image objects.
+    /// Inherits from <see cref="UIRawImageBase"/> and provides extended functionality
+    /// to handle operations across a collection of targets.
+    /// </summary>
     public class UIRawImageGroup : UIRawImageBase
     {
         [TextArea(1, 10)]

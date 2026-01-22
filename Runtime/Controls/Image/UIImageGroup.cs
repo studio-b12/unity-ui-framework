@@ -2,35 +2,27 @@
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a group of UI images that are managed collectively, allowing for batch updates of properties such as visibility, enabling, material, color, alpha, and sprite configurations.
+    /// </summary>
+    /// <remarks>
+    /// This class extends <see cref="UIImageBase"/> and provides an implementation to handle multiple UI elements simultaneously.
+    /// Changes made to this group will be propagated to the individual elements in the group.
+    /// </remarks>
     public class UIImageGroup : UIImageBase
     {
         [TextArea(1, 10)]
         [SerializeField] private string documentation;
         [SerializeField] private UIImageBase[] targets;
 
-        private bool isVisible;
         private bool isEnabled;
+        private bool isVisible;
         private Material material;
         private Color color;
         private Sprite sprite;
         private Sprite overrideSprite;
         private float fillAmount;
         
-        public override bool IsVisible
-        {
-            get => isVisible;
-            set 
-            { 
-                isVisible = value;
-                for (int i = 0; i < targets.Length; i++)
-                {
-                    targets[i].IsVisible = isVisible;
-                }
-                
-                OnPropertyChanged();
-            }
-        }
-
         public override bool Enabled
         {
             get => isEnabled;
@@ -40,6 +32,19 @@ namespace Rehawk.UIFramework
                 for (int i = 0; i < targets.Length; i++)
                 {
                     targets[i].Enabled = isEnabled;
+                }
+            }
+        }
+
+        public override bool IsVisible
+        {
+            get => isVisible;
+            set 
+            { 
+                isVisible = value;
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    targets[i].IsVisible = isVisible;
                 }
                 
                 OnPropertyChanged();

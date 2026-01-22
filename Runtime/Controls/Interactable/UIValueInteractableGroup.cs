@@ -2,31 +2,20 @@
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a group of interactable UI elements that share the same value and state.
+    /// The group synchronizes its visibility, enabled state, interactable state, and value with all its targets.
+    /// </summary>
     public class UIValueInteractableGroup : UIValueInteractableBase
     {
         [SerializeField] private UIValueInteractableBase[] targets;
 
-        private bool isVisible;
         private bool isEnabled;
+        private bool isVisible;
         private bool isInteractable;
         private object boxedValue;
         private ICommand changedCommand;
         
-        public override bool IsVisible
-        {
-            get => isVisible;
-            set 
-            { 
-                isVisible = value;
-                for (int i = 0; i < targets.Length; i++)
-                {
-                    targets[i].IsVisible = isVisible;
-                }
-                
-                OnPropertyChanged();
-            }
-        }
-
         public override bool Enabled
         {
             get => isEnabled;
@@ -36,6 +25,21 @@ namespace Rehawk.UIFramework
                 for (int i = 0; i < targets.Length; i++)
                 {
                     targets[i].Enabled = isEnabled;
+                }
+                
+                OnPropertyChanged();
+            }
+        }
+
+        public override bool IsVisible
+        {
+            get => isVisible;
+            set 
+            { 
+                isVisible = value;
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    targets[i].IsVisible = isVisible;
                 }
                 
                 OnPropertyChanged();

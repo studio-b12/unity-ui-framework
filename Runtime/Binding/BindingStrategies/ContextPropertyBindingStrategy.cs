@@ -5,6 +5,10 @@ using System.Reflection;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a binding strategy that facilitates binding a context object property to a target,
+    /// enabling dynamic property value updates and conversions during runtime.
+    /// </summary>
     public class ContextPropertyBindingStrategy : IBindingStrategy
     {
         private readonly Func<object> getContextFunction;
@@ -60,7 +64,7 @@ namespace Rehawk.UIFramework
                 result = propertyInfo.GetValue(context, null);
             }
 
-            if (converter != default)
+            if (converter != null)
             {
                 result = converter.Convert(result);
             }
@@ -70,7 +74,7 @@ namespace Rehawk.UIFramework
 
         public void Set(object value)
         {
-            if (converter != default)
+            if (converter != null)
             {
                 value = converter.ConvertBack(value);
             }

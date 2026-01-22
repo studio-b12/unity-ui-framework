@@ -2,31 +2,26 @@
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a group of UI buttons that share common properties and behavior.
+    /// </summary>
+    /// <remarks>
+    /// UIButtonGroup manages a collection of button targets, ensuring that their
+    /// properties and commands are synchronized. This allows for collective control
+    /// of visibility, state, and interactions within a group of buttons.
+    /// </remarks>
     public class UIButtonGroup : UIButtonBase
     {
         [TextArea(1, 10)]
         [SerializeField] private string documentation;
         [SerializeField] private UIButtonBase[] targets;
         
-        private bool isVisible;
         private bool isEnabled;
+        private bool isVisible;
         private bool isInteractable;
         private ICommand clickCommand;
         private ICommand hoverBeginCommand;
         private ICommand hoverEndCommand;
-
-        public override bool IsVisible
-        {
-            get => isVisible;
-            set 
-            { 
-                isVisible = value;
-                for (int i = 0; i < targets.Length; i++)
-                {
-                    targets[i].IsVisible = isVisible;
-                }
-            }
-        }
 
         public override bool Enabled
         {
@@ -37,6 +32,19 @@ namespace Rehawk.UIFramework
                 for (int i = 0; i < targets.Length; i++)
                 {
                     targets[i].Enabled = isEnabled;
+                }
+            }
+        }
+
+        public override bool IsVisible
+        {
+            get => isVisible;
+            set 
+            { 
+                isVisible = value;
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    targets[i].IsVisible = isVisible;
                 }
             }
         }

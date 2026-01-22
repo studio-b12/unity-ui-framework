@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a strategy for managing multiple binding operations within the UI framework.
+    /// This strategy allows the combination of multiple binding strategies and the manipulation
+    /// of their combined values through a specified value combiner.
+    /// </summary>
     public class MultiBindingStrategy : IBindingStrategy
     {
         private readonly List<IBindingStrategy> bindingStrategies = new List<IBindingStrategy>();
@@ -13,6 +18,13 @@ namespace Rehawk.UIFramework
         
         public event Action GotDirty;
 
+        /// <summary>
+        /// Sets the value combiner for the current multi-binding strategy.
+        /// </summary>
+        /// <param name="valueCombiner">An instance of <see cref="IValueCombiner"/> to combine or divide values.</param>
+        /// <exception cref="NotSupportedException">
+        /// Thrown if a value combiner has already been assigned to this strategy.
+        /// </exception>
         public void SetCombiner(IValueCombiner valueCombiner)
         {
             if (this.valueCombiner != null)
@@ -22,7 +34,11 @@ namespace Rehawk.UIFramework
             
             this.valueCombiner = valueCombiner;
         }
-        
+
+        /// <summary>
+        /// Adds a binding strategy to the current multi-binding strategy.
+        /// </summary>
+        /// <param name="bindingStrategy">An instance of <see cref="IBindingStrategy"/> to be added to the binding strategy collection.</param>
         public void AddBindingStrategy(IBindingStrategy bindingStrategy)
         {
             bindingStrategies.Add(bindingStrategy);
@@ -30,7 +46,7 @@ namespace Rehawk.UIFramework
             
             values = new object[bindingStrategies.Count];
         }
-        
+
         public void Evaluate()
         {
             for (int i = 0; i < bindingStrategies.Count; i++)

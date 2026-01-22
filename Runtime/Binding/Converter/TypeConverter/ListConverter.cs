@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Provides a mechanism for converting a single object or an enumerable of objects into a standard list representation.
+    /// Implements the <see cref="IValueConverter"/> interface.
+    /// </summary>
     public class ListConverter : IValueConverter
     {
         private readonly List<object> list = new List<object>(1);

@@ -2,6 +2,11 @@ using System;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// StringFormatCombiner combines multiple input values into a single formatted string
+    /// based on the provided string format. This implementation is useful in scenarios
+    /// where a user needs to bind and format multiple values into a single string output.
+    /// </summary>
     public class StringFormatCombiner : IValueCombiner
     {
         private readonly string format;

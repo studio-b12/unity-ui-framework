@@ -3,6 +3,10 @@ using UnityEngine;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// A visibility strategy implementation that utilizes a <see cref="CanvasGroup"/> component
+    /// to manage UI visibility, interactivity, and raycast blocking settings.
+    /// </summary>
     [Serializable]
     public class CanvasGroupVisibilityStrategy : VisibilityStrategyBase
     {

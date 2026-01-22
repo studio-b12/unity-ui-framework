@@ -2,6 +2,10 @@
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a strategy for binding data using callback functions for getting and setting values.
+    /// </summary>
+    /// <typeparam name="T">The type of the value being bound.</typeparam>
     public class CallbackBindingStrategy<T> : IBindingStrategy
     {
         private readonly Func<T> getFunction;
@@ -18,6 +22,10 @@ namespace Rehawk.UIFramework
             this.setCallback = setCallback;
         }
 
+        /// <summary>
+        /// Sets the value converter used for transforming data during binding operations.
+        /// </summary>
+        /// <param name="converter">The value converter to be used for data transformation.</param>
         public void SetConverter(IValueConverter converter)
         {
             this.converter = converter;
@@ -36,7 +44,7 @@ namespace Rehawk.UIFramework
                 result = getFunction.Invoke();
             }
 
-            if (converter != default)
+            if (converter != null)
             {
                 result = converter.Convert(result);
             }
@@ -46,7 +54,7 @@ namespace Rehawk.UIFramework
 
         public void Set(object value)
         {
-            if (converter != default)
+            if (converter != null)
             {
                 value = converter.ConvertBack(value);
             }

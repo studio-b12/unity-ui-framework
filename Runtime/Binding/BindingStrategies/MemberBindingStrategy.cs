@@ -2,6 +2,9 @@
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a binding strategy that binds to a specific member of an object.
+    /// </summary>
     public class MemberBindingStrategy : IBindingStrategy
     {
         private readonly BindedMember member;
@@ -35,7 +38,7 @@ namespace Rehawk.UIFramework
         {
             object value = member.Get();
             
-            if (converter != default)
+            if (converter != null)
             {
                 value = converter.Convert(value);
             }
@@ -45,7 +48,7 @@ namespace Rehawk.UIFramework
 
         public void Set(object value)
         {
-            if (converter != default)
+            if (converter != null)
             {
                 value = converter.ConvertBack(value);
             }

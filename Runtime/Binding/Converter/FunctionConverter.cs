@@ -5,6 +5,9 @@ namespace Rehawk.UIFramework
     public delegate object ValueConvertFunctionDelegate(object value);
     public delegate object ValueConvertFunctionDelegate<in T>(T value);
 
+    /// <summary>
+    /// Represents a value converter for one-way or two-way data transformation, using customizable conversion functions.
+    /// </summary>
     public class FunctionConverter : IValueConverter
     {
         private readonly ValueConvertFunctionDelegate convertFunction;

@@ -1,8 +1,10 @@
-using System;
 using System.Globalization;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Provides functionality to convert values to their string representation using a specific format and culture.
+    /// </summary>
     public class StringConverter : IValueConverter
     {
         private readonly string format;

@@ -3,10 +3,15 @@ using UnityEngine.UI;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a user interface button component.
+    /// This class extends the functionality of <see cref="UIButtonBase"/>, wrappers the <see cref="Button"/> component and reacts to pointer
+    /// events when no button is on the same game object.
+    /// </summary>
     public class UIButton : UIButtonBase, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
-        private bool isInteractable = true;
         private bool isEnabled = true;
+        private bool isInteractable = true;
 
         private Button button;
         private ICommand clickCommand;
@@ -47,6 +52,30 @@ namespace Rehawk.UIFramework
             set => SetField(ref hoverEndCommand, value);
         }
         
+        public override bool Enabled
+        {
+            get 
+            { 
+                if (button)
+                {
+                    return button.enabled;
+                }
+
+                return isEnabled;
+            }
+            set 
+            {
+                if (button)
+                {
+                    button.enabled = value;
+                }
+
+                isEnabled = value;
+                OnPropertyChanged();
+                ReevaluateInteractableState();
+            }
+        }
+
         public override bool IsVisible
         {
             get
@@ -70,30 +99,6 @@ namespace Rehawk.UIFramework
                 }
                 
                 OnPropertyChanged();
-            }
-        }
-
-        public override bool Enabled
-        {
-            get 
-            { 
-                if (button)
-                {
-                    return button.enabled;
-                }
-
-                return isEnabled;
-            }
-            set 
-            {
-                if (button)
-                {
-                    button.enabled = value;
-                }
-
-                isEnabled = value;
-                OnPropertyChanged();
-                ReevaluateInteractableState();
             }
         }
 

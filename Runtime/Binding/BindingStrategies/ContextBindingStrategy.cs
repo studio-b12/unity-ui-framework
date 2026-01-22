@@ -2,6 +2,10 @@
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a binding strategy that interfaces with a UIContextControlBase to manage the
+    /// binding of contextual data within the framework.
+    /// </summary>
     public class ContextBindingStrategy : IBindingStrategy
     {
         private readonly Func<UIContextControlBase> getControlFunction;
@@ -17,6 +21,10 @@ namespace Rehawk.UIFramework
             this.getControlFunction = getControlFunction;
         }
 
+        /// <summary>
+        /// Sets the value converter used for transforming data during binding operations.
+        /// </summary>
+        /// <param name="converter">The value converter to be used for data transformation.</param>
         public void SetConverter(IValueConverter converter)
         {
             this.converter = converter;
@@ -45,7 +53,7 @@ namespace Rehawk.UIFramework
                 value = control.RawContext;
             }
             
-            if (converter != default)
+            if (converter != null)
             {
                 value = converter.Convert(value);
             }
@@ -57,7 +65,7 @@ namespace Rehawk.UIFramework
         {
             if (control != null)
             {
-                if (converter != default)
+                if (converter != null)
                 {
                     value = converter.ConvertBack(value);
                 }

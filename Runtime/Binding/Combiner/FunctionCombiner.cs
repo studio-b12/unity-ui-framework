@@ -5,7 +5,10 @@ namespace Rehawk.UIFramework
     public delegate object MultiValueConvertFunctionDelegate(object[] values);
     public delegate object[] MultiValueConvertBackFunctionDelegate(object value);
     public delegate object MultiValueConvertFunctionDelegate<in T>(T[] values);
-    
+
+    /// <summary>
+    /// A utility class that provides functionality for combining and dividing values in data-binding scenarios using custom delegate functions.
+    /// </summary>
     public class FunctionCombiner : IValueCombiner
     {
         private readonly MultiValueConvertFunctionDelegate convertFunction;

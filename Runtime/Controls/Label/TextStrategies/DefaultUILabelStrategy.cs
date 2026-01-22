@@ -2,6 +2,11 @@
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents the default implementation of the <see cref="IUILabelTextStrategy"/> interface.
+    /// This strategy handles the management and updates of text content for a <see cref="UILabelBase"/>.
+    /// It provides a mechanism for setting and retrieving text while notifying listeners when the text changes.
+    /// </summary>
     public class DefaultTextStrategy : IUILabelTextStrategy
     {
         private string text;

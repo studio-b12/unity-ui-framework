@@ -2,6 +2,19 @@ using System;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// A class that combines two numerical values to calculate the
+    /// percentage. The first value represents the part, and the second
+    /// represents the whole. The output is the ratio of part to whole
+    /// expressed as a percentage.
+    /// </summary>
+    /// <remarks>
+    /// This class implements the IValueCombiner interface. It computes
+    /// the percentage by dividing the first input value by the second,
+    /// provided both values are non-null, parsable as floats, and the
+    /// second value is not zero. If these conditions are not met, a default
+    /// value of 0 is returned. Back conversion is not supported.
+    /// </remarks>
     public class PercentageCombiner : IValueCombiner
     {
         public object Combine(object[] values)

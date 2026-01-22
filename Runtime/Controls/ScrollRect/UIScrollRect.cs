@@ -3,11 +3,29 @@ using UnityEngine.UI;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a scrollable UI element with customizable scrolling behavior.
+    /// Inherits from <see cref="UIScrollRectBase"/> and provides implementation for properties and methods
+    /// to manage the scrolling behavior of the associated RectTransform.
+    /// </summary>
     public class UIScrollRect : UIScrollRectBase
     {
         [SerializeField] private ScrollRect target;
         
         private ICommand changedCommand;
+
+        public override bool Enabled
+        {
+            get => target.enabled;
+            set 
+            {
+                if (target.enabled == value) 
+                    return;
+                
+                target.enabled = value;
+                OnPropertyChanged();
+            }
+        }
 
         public override bool IsVisible
         {
@@ -19,21 +37,14 @@ namespace Rehawk.UIFramework
             }
         }
 
-        public override bool Enabled
-        {
-            get => target.enabled;
-            set 
-            {
-                target.enabled = value;
-                OnPropertyChanged();
-            }
-        }
-
         public override bool Horizontal
         {
             get => target.horizontal;
             set
             {
+                if (target.horizontal == value) 
+                    return;
+
                 target.horizontal = value;
                 OnPropertyChanged();
             }
@@ -44,47 +55,10 @@ namespace Rehawk.UIFramework
             get => target.vertical;
             set
             {
+                if (target.vertical == value) 
+                    return;
+
                 target.vertical = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public override ScrollRect.MovementType MovementType
-        {
-            get => target.movementType;
-            set
-            {
-                target.movementType = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public override float Elasticity
-        {
-            get => target.elasticity;
-            set
-            {
-                target.elasticity = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public override bool Inertia
-        {
-            get => target.inertia;
-            set
-            {
-                target.inertia = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public override float DecelerationRate
-        {
-            get => target.decelerationRate;
-            set
-            {
-                target.decelerationRate = value;
                 OnPropertyChanged();
             }
         }
@@ -94,47 +68,10 @@ namespace Rehawk.UIFramework
             get => target.scrollSensitivity;
             set
             {
+                if (Mathf.Approximately(target.scrollSensitivity, value)) 
+                    return;
+
                 target.scrollSensitivity = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public override ScrollRect.ScrollbarVisibility HorizontalScrollbarVisibility
-        {
-            get => target.horizontalScrollbarVisibility;
-            set
-            {
-                target.horizontalScrollbarVisibility = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public override ScrollRect.ScrollbarVisibility VerticalScrollbarVisibility
-        {
-            get => target.verticalScrollbarVisibility;
-            set
-            {
-                target.verticalScrollbarVisibility = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public override float HorizontalScrollbarSpacing
-        {
-            get => target.horizontalScrollbarSpacing;
-            set
-            {
-                target.horizontalScrollbarSpacing = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public override float VerticalScrollbarSpacing
-        {
-            get => target.verticalScrollbarSpacing;
-            set
-            {
-                target.verticalScrollbarSpacing = value;
                 OnPropertyChanged();
             }
         }
@@ -144,6 +81,9 @@ namespace Rehawk.UIFramework
             get => target.normalizedPosition;
             set
             {
+                if (target.normalizedPosition == value) 
+                    return;
+
                 target.normalizedPosition = value;
                 OnPropertyChanged();
             }
@@ -154,6 +94,9 @@ namespace Rehawk.UIFramework
             get => target.horizontalNormalizedPosition;
             set
             {
+                if (Mathf.Approximately(target.horizontalNormalizedPosition, value)) 
+                    return;
+
                 target.horizontalNormalizedPosition = value;
                 OnPropertyChanged();
             }
@@ -164,6 +107,9 @@ namespace Rehawk.UIFramework
             get => target.verticalNormalizedPosition;
             set
             {
+                if (Mathf.Approximately(target.verticalNormalizedPosition, value)) 
+                    return;
+
                 target.verticalNormalizedPosition = value;
                 OnPropertyChanged();
             }
@@ -174,6 +120,9 @@ namespace Rehawk.UIFramework
             get => target.velocity;
             set
             {
+                if (target.velocity == value) 
+                    return;
+
                 target.velocity = value;
                 OnPropertyChanged();
             }

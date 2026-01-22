@@ -5,21 +5,17 @@ namespace Rehawk.UIFramework
     internal class MemberConnection : IBindingConnection
     {
         private readonly BindedMember member;
-        private readonly BindingConnectionDirection direction;
-        
+
+        public BindingConnectionDirection Direction { get; }
+
         public event Action Changed;
             
         public MemberConnection(Func<object> getOriginFunction, string memberPath, BindingConnectionDirection direction)
         {
             member = new BindedMember(getOriginFunction, memberPath);
-            this.direction = direction;
+            Direction = direction;
             
             member.GotDirty += OnMemberGotDirty;
-        }
-
-        public BindingConnectionDirection Direction
-        {
-            get { return direction; }
         }
 
         public void Evaluate()

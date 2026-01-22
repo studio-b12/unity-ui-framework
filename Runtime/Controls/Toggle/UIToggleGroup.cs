@@ -2,6 +2,11 @@
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a group of toggleable UI elements that manage their state collectively.
+    /// This class extends <see cref="UIToggleBase"/> and provides implementation for
+    /// common toggle group features such as visibility, interactivity, and value handling.
+    /// </summary>
     public class UIToggleGroup : UIToggleBase
     {
         [TextArea(1, 10)]

@@ -1,5 +1,9 @@
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// A value converter designed to transform an input value into an integer representation.
+    /// Implements the IValueConverter interface to support custom conversion logic.
+    /// </summary>
     public class IntConverter : IValueConverter
     {
         public object Convert(object value)

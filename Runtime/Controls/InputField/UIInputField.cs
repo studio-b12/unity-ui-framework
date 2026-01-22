@@ -3,11 +3,28 @@ using UnityEngine;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a user interface text component.
+    /// This class extends the functionality of <see cref="UIInputFieldBase"/> and wrappers the <see cref="TMP_InputField"/> component.
+    /// </summary>
     public class UIInputField : UIInputFieldBase
     {
         [SerializeField] private TMP_InputField target;
         
         private ICommand changedCommand;
+
+        public override bool Enabled
+        {
+            get => target.enabled;
+            set
+            {
+                if (target.enabled == value)
+                    return;
+                
+                target.enabled = value;
+                OnPropertyChanged();
+            }
+        }
 
         public override bool IsVisible
         {
@@ -19,21 +36,14 @@ namespace Rehawk.UIFramework
             }
         }
 
-        public override bool Enabled
-        {
-            get => target.enabled;
-            set 
-            {
-                target.enabled = value;
-                OnPropertyChanged();
-            }
-        }
-
         public override bool IsInteractable
         {
             get => target.interactable;
             set
             {
+                if (target.interactable == value)
+                    return;
+                
                 target.interactable = value;
                 OnPropertyChanged();
             }

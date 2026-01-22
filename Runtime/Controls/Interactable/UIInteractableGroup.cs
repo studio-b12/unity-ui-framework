@@ -8,23 +8,10 @@ namespace Rehawk.UIFramework
         [SerializeField] private string documentation;
         [SerializeField] private UIInteractableBase[] targets;
 
-        private bool isVisible;
         private bool isEnabled;
+        private bool isVisible;
         private bool isInteractable;
         
-        public override bool IsVisible
-        {
-            get => isVisible;
-            set 
-            { 
-                isVisible = value;
-                for (int i = 0; i < targets.Length; i++)
-                {
-                    targets[i].IsVisible = isVisible;
-                }
-            }
-        }
-
         public override bool Enabled
         {
             get => isEnabled;
@@ -34,6 +21,19 @@ namespace Rehawk.UIFramework
                 for (int i = 0; i < targets.Length; i++)
                 {
                     targets[i].Enabled = isEnabled;
+                }
+            }
+        }
+
+        public override bool IsVisible
+        {
+            get => isVisible;
+            set 
+            { 
+                isVisible = value;
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    targets[i].IsVisible = isVisible;
                 }
             }
         }

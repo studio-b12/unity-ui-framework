@@ -6,6 +6,11 @@ using UnityEngine;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Provides a cache mechanism for storing and retrieving member references
+    /// (fields and properties) of a given type. This improves performance by avoiding
+    /// repeated reflection-based lookups during runtime.
+    /// </summary>
     public static class MemberReferenceCache
     {
         private const BindingFlags FLAGS = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance | BindingFlags.DeclaredOnly;

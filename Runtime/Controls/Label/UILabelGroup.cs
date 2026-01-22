@@ -2,34 +2,24 @@
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a group of UI labels that share common properties and behaviors.
+    /// UILabelGroup provides a way to collectively manage multiple UI labels as a single entity.
+    /// Updates to visibility, material, color, alpha, or other properties are propagated to all grouped labels.
+    /// </summary>
     public class UILabelGroup : UILabelBase
     {
         [TextArea(1, 10)]
         [SerializeField] private string documentation;
         [SerializeField] private UILabelBase[] targets;
 
-        private bool isVisible;
         private bool isEnabled;
+        private bool isVisible;
         private Material material;
         private Color color;
         private float alpha;
         private string text;
         
-        public override bool IsVisible
-        {
-            get => isVisible;
-            set 
-            { 
-                isVisible = value;
-                for (int i = 0; i < targets.Length; i++)
-                {
-                    targets[i].IsVisible = isVisible;
-                }
-                
-                OnPropertyChanged();
-            }
-        }
-
         public override bool Enabled
         {
             get => isEnabled;
@@ -39,6 +29,21 @@ namespace Rehawk.UIFramework
                 for (int i = 0; i < targets.Length; i++)
                 {
                     targets[i].Enabled = isEnabled;
+                }
+                
+                OnPropertyChanged();
+            }
+        }
+
+        public override bool IsVisible
+        {
+            get => isVisible;
+            set 
+            { 
+                isVisible = value;
+                for (int i = 0; i < targets.Length; i++)
+                {
+                    targets[i].IsVisible = isVisible;
                 }
                 
                 OnPropertyChanged();

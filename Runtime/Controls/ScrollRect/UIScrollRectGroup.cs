@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a grouped scrollable UI element in the framework, inheriting functionality from UIScrollRectBase.
+    /// Provides configurable properties for visibility, orientation, movement behavior, and user interaction sensitivity.
+    /// </summary>
     public class UIScrollRectGroup : UIScrollRectBase
     {
         [TextArea(1, 10)]
@@ -80,58 +84,6 @@ namespace Rehawk.UIFramework
             }
         }
 
-        public override ScrollRect.MovementType MovementType
-        {
-            get => movementType;
-            set
-            {
-                movementType = value;
-                for (int i = 0; i < targets.Length; i++)
-                    targets[i].MovementType = movementType;
-
-                OnPropertyChanged();
-            }
-        }
-
-        public override float Elasticity
-        {
-            get => elasticity;
-            set
-            {
-                elasticity = value;
-                for (int i = 0; i < targets.Length; i++)
-                    targets[i].Elasticity = elasticity;
-
-                OnPropertyChanged();
-            }
-        }
-
-        public override bool Inertia
-        {
-            get => inertia;
-            set
-            {
-                inertia = value;
-                for (int i = 0; i < targets.Length; i++)
-                    targets[i].Inertia = inertia;
-
-                OnPropertyChanged();
-            }
-        }
-
-        public override float DecelerationRate
-        {
-            get => decelerationRate;
-            set
-            {
-                decelerationRate = value;
-                for (int i = 0; i < targets.Length; i++)
-                    targets[i].DecelerationRate = decelerationRate;
-
-                OnPropertyChanged();
-            }
-        }
-
         public override float ScrollSensitivity
         {
             get => scrollSensitivity;
@@ -140,58 +92,6 @@ namespace Rehawk.UIFramework
                 scrollSensitivity = value;
                 for (int i = 0; i < targets.Length; i++)
                     targets[i].ScrollSensitivity = scrollSensitivity;
-
-                OnPropertyChanged();
-            }
-        }
-
-        public override ScrollRect.ScrollbarVisibility HorizontalScrollbarVisibility
-        {
-            get => horizontalScrollbarVisibility;
-            set
-            {
-                horizontalScrollbarVisibility = value;
-                for (int i = 0; i < targets.Length; i++)
-                    targets[i].HorizontalScrollbarVisibility = horizontalScrollbarVisibility;
-
-                OnPropertyChanged();
-            }
-        }
-
-        public override ScrollRect.ScrollbarVisibility VerticalScrollbarVisibility
-        {
-            get => verticalScrollbarVisibility;
-            set
-            {
-                verticalScrollbarVisibility = value;
-                for (int i = 0; i < targets.Length; i++)
-                    targets[i].VerticalScrollbarVisibility = verticalScrollbarVisibility;
-
-                OnPropertyChanged();
-            }
-        }
-
-        public override float HorizontalScrollbarSpacing
-        {
-            get => horizontalScrollbarSpacing;
-            set
-            {
-                horizontalScrollbarSpacing = value;
-                for (int i = 0; i < targets.Length; i++)
-                    targets[i].HorizontalScrollbarSpacing = horizontalScrollbarSpacing;
-
-                OnPropertyChanged();
-            }
-        }
-
-        public override float VerticalScrollbarSpacing
-        {
-            get => verticalScrollbarSpacing;
-            set
-            {
-                verticalScrollbarSpacing = value;
-                for (int i = 0; i < targets.Length; i++)
-                    targets[i].VerticalScrollbarSpacing = verticalScrollbarSpacing;
 
                 OnPropertyChanged();
             }

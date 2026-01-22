@@ -5,6 +5,11 @@ using UnityEngine;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// A UIList represents a dynamic and configurable UI element for managing a collection of items.
+    /// It provides the ability to handle item strategies, receive callbacks,
+    /// and manage item objects while leveraging an internal item strategy interface.
+    /// </summary>
     public class UIList : UIListBase
     {
         private readonly List<object> datasets = new List<object>();
@@ -12,7 +17,7 @@ namespace Rehawk.UIFramework
         
         private IUIListItemStrategy itemStrategy;
         private Type itemReceiverType;
-        
+
         private IEnumerable items;
         private int count;
         
@@ -251,8 +256,22 @@ namespace Rehawk.UIFramework
 
     public enum UIListItemCallback
     {
+        /// <summary>
+        /// Represents a callback type indicating that a list item has been initialized.
+        /// This event is triggered when a new item in the UI list is fully set up and ready for interaction for the first time.
+        /// </summary>
         Initialized,
+
+        /// <summary>
+        /// Represents a callback type indicating that a list item has been activated.
+        /// This event is triggered when a previously inactive item in the UI list becomes active and is ready for interaction.
+        /// </summary>
         Activated,
+
+        /// <summary>
+        /// Represents a callback type indicating that a list item has been deactivated.
+        /// This event is triggered when a previously active item in the UI list is no longer in use or becomes inactive.
+        /// </summary>
         Deactivated,
     }
 }

@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a UI slider component that extends from UISliderBase, providing functionality for
+    /// adjusting values interactively through UI elements.
+    /// </summary>
     public class UISlider : UISliderBase
     {
         [SerializeField] private Slider target;

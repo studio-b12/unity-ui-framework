@@ -3,6 +3,11 @@ using UnityEngine.UI;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a UI toggle control element that extends the functionality of UIToggleBase.
+    /// Provides properties and methods to handle the visibility, enablement, interactivity, and
+    /// state of the toggle, as well as an associated command for value change events.
+    /// </summary>
     public class UIToggle : UIToggleBase
     {
         [SerializeField] private Toggle target;

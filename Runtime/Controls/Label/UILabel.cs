@@ -3,21 +3,16 @@ using UnityEngine;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a user interface label component.
+    /// This class extends the functionality of <see cref="UILabelBase"/> and wrappers the <see cref="TextMeshProUGUI"/> component.
+    /// The label also supports a configurable text strategy to handle text setting and retrieval. For example to implement localization.
+    /// </summary>
     public class UILabel : UILabelBase
     {
         [SerializeField] private TextMeshProUGUI target;
         
         private IUILabelTextStrategy strategy;
-
-        public override bool IsVisible
-        {
-            get => gameObject.activeSelf;
-            set 
-            {
-                gameObject.SetActive(value);
-                OnPropertyChanged();
-            }
-        }
 
         public override bool Enabled
         {
@@ -29,16 +24,26 @@ namespace Rehawk.UIFramework
             }
         }
 
+        public override bool IsVisible
+        {
+            get => gameObject.activeSelf;
+            set 
+            {
+                gameObject.SetActive(value);
+                OnPropertyChanged();
+            }
+        }
+
         public override Material Material
         {
             get => target.material;
-            set 
+            set
             {
-                if (target.material != value)
-                {
-                    target.material = value;
-                    OnPropertyChanged();
-                }
+                if (target.material == value) 
+                    return;
+                
+                target.material = value;
+                OnPropertyChanged();
             }
         }
 
@@ -59,11 +64,11 @@ namespace Rehawk.UIFramework
             get => target.color;
             set
             {
-                if (target.color != value)
-                {
-                    target.color = value;
-                    OnPropertyChanged();
-                }
+                if (target.color == value)
+                    return;
+                
+                target.color = value;
+                OnPropertyChanged();
             }
         }
 

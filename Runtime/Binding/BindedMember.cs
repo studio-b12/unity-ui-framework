@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
 using UnityEngine;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a binded member that allows for accessing and modifying
+    /// values of object members through a defined member path. This class
+    /// provides functionality to evaluate, retrieve, and set the value of
+    /// the specified member, as well as manage event linking related to the
+    /// member value changes.
+    /// </summary>
     public class BindedMember
     {
         private readonly Func<object> getOriginFunction;

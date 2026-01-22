@@ -3,6 +3,9 @@ using System.Reflection;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Provides extension methods for <see cref="System.Reflection.MemberInfo"/> objects.
+    /// </summary>
     public static class MemberInfoExtensions
     {
         public static Type GetUnderlyingType(this MemberInfo member)

@@ -3,6 +3,10 @@ using System.Globalization;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Provides a mechanism to convert <see cref="DateTime"/> objects into formatted string representations.
+    /// Implements the <see cref="IValueConverter"/> interface for use in binding scenarios requiring value transformation.
+    /// </summary>
     public class DateTimeToStringConverter : IValueConverter
     {
         private readonly string format;

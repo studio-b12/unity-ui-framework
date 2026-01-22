@@ -7,27 +7,23 @@ namespace Rehawk.UIFramework
     {
         private readonly Func<INotifyPropertyChanged> getContextFunction;
         private readonly string propertyName;
-        private readonly BindingConnectionDirection direction;
 
         private INotifyPropertyChanged context;
         
+        public BindingConnectionDirection Direction { get; }
+
         public event Action Changed;
             
         public PropertyConnection(Func<INotifyPropertyChanged> getContextFunction, string propertyName, BindingConnectionDirection direction)
         {
             this.getContextFunction = getContextFunction;
             this.propertyName = propertyName;
-            this.direction = direction;
+            Direction = direction;
         }
 
         ~PropertyConnection()
         {
             context.PropertyChanged -= OnContextPropertyChanged;
-        }
-
-        public BindingConnectionDirection Direction
-        {
-            get { return direction; }
         }
 
         public void Evaluate()

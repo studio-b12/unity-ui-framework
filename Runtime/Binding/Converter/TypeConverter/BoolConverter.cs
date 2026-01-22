@@ -1,5 +1,8 @@
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Converts various data types to a boolean representation, with optional inversion logic.
+    /// </summary>
     public class BoolConverter : IValueConverter
     {
         private readonly bool invert;

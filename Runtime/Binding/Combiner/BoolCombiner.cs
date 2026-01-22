@@ -2,6 +2,10 @@ using System;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a class that combines multiple boolean values using a specified logic mode (AND/OR).
+    /// Implements the <see cref="IValueCombiner"/> interface to provide value combination functionality.
+    /// </summary>
     public class BoolCombiner : IValueCombiner
     {
         private readonly Mode mode;

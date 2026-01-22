@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Defines the root visibility strategy for UI panels. This strategy controls
+    /// the visibility of a panel by toggling the active state of the associated root
+    /// GameObject.
+    /// </summary>
     [Serializable]
     public class RootVisibilityStrategy : VisibilityStrategyBase
     {

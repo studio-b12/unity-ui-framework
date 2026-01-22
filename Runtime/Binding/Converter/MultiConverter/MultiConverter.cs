@@ -2,6 +2,10 @@
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a value converter that combines multiple converters and applies them sequentially
+    /// to transform data in both conversion directions.
+    /// </summary>
     public class MultiConverter : IValueConverter
     {
         private readonly List<IValueConverter> converters = new List<IValueConverter>();

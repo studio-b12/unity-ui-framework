@@ -2,6 +2,12 @@
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// Represents a group of linked UI sliders, providing synchronized behavior
+    /// across multiple slider targets. This class extends the base functionality
+    /// of <see cref="UISliderBase"/> to coordinate state and value updates across
+    /// all associated sliders.
+    /// </summary>
     public class UISliderGroup : UISliderBase
     {
         [TextArea(1, 10)]

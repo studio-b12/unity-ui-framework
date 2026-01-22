@@ -1,9 +1,11 @@
 using System;
 using System.Globalization;
-using Rehawk.UIFramework;
 
 namespace Rehawk.UIFramework
 {
+    /// <summary>
+    /// A converter that transforms a TimeSpan object into a string representation, using a specified format and culture information.
+    /// </summary>
     public class TimeSpanToStringConverter : IValueConverter
     {
         private readonly string format;
