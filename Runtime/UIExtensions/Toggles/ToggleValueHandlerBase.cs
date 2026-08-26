@@ -13,13 +13,6 @@ namespace Rehawk.UIFramework.UIExtensions
 
         protected bool CurrentToggleValue => _toggle != null && _toggle.isOn;
 
-        protected override void Reset()
-        {
-            base.Reset();
-
-            _toggle ??= GetComponent<Toggle>();
-        }
-
         protected override void Awake()
         {
             base.Awake();
