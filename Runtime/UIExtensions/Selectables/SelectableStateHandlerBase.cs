@@ -65,13 +65,6 @@ namespace Rehawk.UIFramework.UIExtensions
             }
         }
         
-        protected override void Reset()
-        {
-            base.Reset();
-
-            _selectable ??= GetComponent<Selectable>();
-        }
-        
         protected override void Awake()
         {
             base.Awake();
